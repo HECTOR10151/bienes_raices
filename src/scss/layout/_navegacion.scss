@@ -1,0 +1,88 @@
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include tablet{
+        align-items: flex-end;//sirve para alinear los elementos hijos de la barra de navegacion a la derecha en pantallas de tabletas y superiores   
+    }
+    .dark-mode-boton{
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        filter: invert(100%);//para que el icono del modo oscuro se vea bien en el fondo oscuro
+
+        &:hover{
+            cursor: pointer;//para que el cursor cambie a mano cuando se pase por encima del icono del modo oscuro
+        }
+
+        @include tablet{
+            margin-top: 0;
+        }
+    }
+}
+
+.barra{
+    display: flex;//ayuda a que los elementos hijos se muestren en una fila
+    flex-direction: column;//nos sirve para que la barra de navegacion se muestre verticalmente
+    align-items: center;
+    padding-top: 3rem;//para que la barra de navegacion no se pegue al header
+    @include tablet{//media query para pantallas de tabletas
+        flex-direction: row;//aqui cambiamos la barra de navegacion a horizontal
+        justify-content:space-between;//espacio entre los elementos de la barra de navegacion
+        align-items: flex-end;//para centrar los elementos hijos de la barra de navegacion
+    }
+}
+
+.navegacion{
+    //display: none;//ocultamos la barra de navegacion por defecto
+    visibility: hidden;//ocultamos la barra de navegacion por defecto, pero ocupa espacio en el DOM
+    opacity: 0;
+    height: 0;
+    transition: visibility 0.3s ease-in-out, opacity 0.5s  height .5s linear; //para que la barra de navegacion se muestre con una transicion suave
+
+    @include tablet{
+        display: flex;
+        align-items: center;
+        opacity: 1;//para que la barra de navegacion se muestre con una transicion suave
+        visibility: visible;//para que la barra de navegacion
+    }
+    a{
+        color:$blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;//para que el enlace ocupe todo el espacio disponible
+        text-align: center;
+
+        @include tablet{
+            margin-right: 2rem;
+            font-size: 1.8rem;
+            &:last-of-type{//para seleccionar el ultimo enlace de la barra de navegacion
+                margin-right: 0;//para que el ultimo enlace no tenga margen derecho
+            }
+        }
+    }
+}
+
+/*Menu de hamburguesa*/
+
+.mobile-menu{
+    @include tablet{
+        display: none;//ocultamos el menu de hamburguesa en pantallas de tabletas y superiores
+    }
+    img{
+        width: 5rem;
+    }
+}
+.mostrar{
+    /* ESTO ES LO MISMO QUE VISIBLE, PERO CON UNA CLASE EXTRA PARA QUE NO SE MUESTRE POR DEFECTO 
+    display: flex;
+    flex-direction: column;
+    @include tablet{
+        flex-direction: row;//para que el menu de hamburguesa se muestre en una fila en pantallas de tabletas y superiores
+
+    }*/
+
+    visibility: visible;//para que el menu de hamburguesa se muestre en pantallas de tabletas y superiores
+    opacity: 1;//para que el menu sea completamente visible
+    height: auto;//para que el menu de hamburguesa ocupe el espacio necesario
+}

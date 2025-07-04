@@ -1,0 +1,27 @@
+.testimonial{
+    background-color: $verde;
+    font-size: 2.4rem;
+    padding: 2rem;
+    color: $blanco;
+    border-radius: 2rem;
+    blockquote{
+        padding-left: 5rem;
+        position: relative;//esto nos ayudara a colocar la imagen de fondo en la parte izquierda
+
+        &::before{//esto crea una imagen de fondo en la parte izquierda del texto
+            //esto es un pseudo elemento que se coloca antes del contenido del blockquote
+            content: '';
+            background-image: url("../../../build/img/comilla.svg");
+            background-repeat: no-repeat;
+            width: 6rem;
+            height: 8rem;
+            display: block;
+            position: absolute;//esto coloca la imagen en la parte izquierda del texto
+            left: -2rem;//esto coloca la imagen a la izquierda del texto
+        }
+    }
+    p{
+    text-align: right;
+    color:$blanco;
+}
+}

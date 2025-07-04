@@ -1,0 +1,41 @@
+.no-web .inicio{// Para navegadores que no soportan WebP
+    background-image: url(../../../build/img/header.jpg);
+}
+
+.webp .inicio{// Para navegadores que soportan WebP
+    background-image: url(../../../build/img/header.webp);
+}
+.header{
+    background-color: $grisOscuro;
+    padding: 1rem 0 3rem 0;
+    &.inicio{
+        background-position: center center;//center center nos asegura que la imagen de fondo esté centrada
+        background-size: cover;//cover nos asegura que la imagen de fondo cubra todo el contenedor
+        @include tablet{
+            min-height: 70rem;
+        }
+        .contenido-header{
+           @include tablet{
+                min-width: 70rem;
+            } 
+        }
+    }
+}
+
+.contenido-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1{
+        text-align: left;
+        color: $blanco;
+        font-weight: $bold;
+        line-height: 2;
+        max-width: 60rem;
+        margin-top: 5rem; // Añade espacio superior al h1
+        @include tablet{
+            margin-top: 28rem; // Más espacio en tablets y desktop
+        }
+    }
+}
