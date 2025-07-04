@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp"
+    "build": "gulp --silent"
   },
   "author": "Hector Ruiz Hernandez",
   "license": "ISC",
