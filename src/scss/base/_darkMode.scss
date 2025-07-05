@@ -31,4 +31,12 @@
             color: $blanco;
         }
     }
+    .propiedades{
+        background-color: $grisOscuro;
+        td{
+            color: $blanco;
+            background-color: $grisOscuro;
+            border-color: darken($grisOscuro, 10%);
+        }
+    }
 }
