@@ -1,3 +1,10 @@
+<?php
+    if(!isset($_SESSION)){// Verificar si la sesión no ha sido iniciada
+        session_start(); // Iniciar la sesión
+    }
+    $auth=$_SESSION['login'] ?? false; // Verificar si la sesión de autenticación existe
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +31,9 @@
                     <a href="anuncios.php">Anuncios</a>
                     <a href="blog.php">Blog</a>
                     <a href="contacto.php">Contacto</a>
+                    <?php if($auth):?>
+                        <a href="cerrar-sesion.php">Cerrar Sesion</a>
+                    <?php endif;?>
                 </nav>
                 </div>
             </div>

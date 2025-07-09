@@ -1,4 +1,13 @@
 <?php 
+    require '../includes/funciones.php';
+    $auth = estaAuntenticado(); //verificar si el usuario esta autenticado
+    $auth = $_SESSION['login']; //verificar si la sesion login esta iniciada y es verdadera
+    if(!$auth){//verificar si la sesion login esta iniciada y es verdadera
+        header('Location: /');//redireccionar al usuario a la pagina de inicio
+    }
+
+
+
     //Importas la conexion a la base de datos
     require '../includes/config/database.php';
     $db=conectarDB();//llamamos a la funcion conectarDB que se encuentra
@@ -32,7 +41,6 @@
         }
     }
 
-    require '../includes/funciones.php';
     incluirTemplate('header');
 ?>
     <main class="contenedor seccion">

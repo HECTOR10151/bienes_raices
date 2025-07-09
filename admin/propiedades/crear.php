@@ -1,4 +1,18 @@
 <?php 
+    require '../../includes/funciones.php';
+    $auth = estaAuntenticado(); //verificar si el usuario esta autenticado
+    $auth = $_SESSION['login']; //verificar si la sesion login esta iniciada y es verdadera
+    if(!$auth){//verificar si la sesion login esta iniciada y es verdadera
+        header('Location: /');//redireccionar al usuario a la pagina de inicio
+    }
+
+     session_start();//iniciar la sesion
+    //Validar si el usuario esta autenticado
+    $auth = $_SESSION['login']; //verificar si la sesion login esta iniciada y es verdadera
+    if(!$auth){//verificar si la sesion login esta iniciada y es verdadera
+        header('Location: /');//redireccionar al usuario a la pagina de inicio
+    }
+
     //-----BASE DE DATOS-----
     require '../../includes/config/database.php';
     $db=conectarDB();
@@ -112,8 +126,6 @@
         }
 
     }
-
-    require '../../includes/funciones.php';
     incluirTemplate('header');
 ?>
     <main class="contenedor seccion">
